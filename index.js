@@ -172,9 +172,9 @@ function greeting(firstName, lastName) {
   
 // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+ console.log(consume(2, 2, add)); // 4
+ console.log(consume(10, 16, multiply)); // 160
+ console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
   
   
 // 🦁💪 Stretch: If you haven't already, convert your array method callbacks into arrow functions - make sure you comment out this section before you submit your work 🦁💪
@@ -188,33 +188,47 @@ function greeting(firstName, lastName) {
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
+function CuboidMaker(step1Attr) {
+  // pointing x into length, y into width, & z into height.
+  this.length = step1Attr.length;
+  this.width = step1Attr.width;
+  this.height = step1Attr.height;
+
 }
 
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
-  Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
-  Formula for cuboid volume: length * width * height   */
+Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
+Formula for cuboid volume: length * width * height   */
 
-
+CuboidMaker.prototype.volume = function() {
+  // returning the product of the loaded values.
+  return this.length * this.width * this.height;
+  
+};
 
 
 
 /* 🐴🐴🐴 Step 3: Surface Area Method 🐴🐴🐴
-  Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
-  Formula for cuboid surface area of a cube: 
-  2 * (length * width + length * height + width * height)  */
+Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
+Formula for cuboid surface area of a cube: 
+2 * (length * width + length * height + width * height)  */
 
-
+CuboidMaker.prototype.surfaceArea = function() {
+  // returning this formula's results to find the cuboid's surface area.
+  return(2 * (this.length * this.width + this.length * this.height + this.width * this.height)
+  );
+  
+};
 
 
 
 /* 🐴🐴🐴 Step 4: Create a new object that uses CuboidMaker 🐴🐴🐴
-  Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
-  Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
+Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
+Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-
+// created cuboid to include the fn CuboidMaker & plugged in the dimensions.
+let cuboid = new CuboidMaker(4, 5, 5);
 
 
 
